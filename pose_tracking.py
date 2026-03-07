@@ -74,7 +74,8 @@ def print_result(result: PoseLandmarkerResult, output_image: mp.Image, timestamp
 options = PoseLandmarkerOptions(
     base_options=BaseOptions(model_asset_path=model_path),
     running_mode=VisionRunningMode.LIVE_STREAM,
-    result_callback=print_result
+    result_callback=print_result,
+    num_poses=3,
 )
 
 with PoseLandmarker.create_from_options(options) as landmarker:
